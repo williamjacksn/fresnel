@@ -1,0 +1,14 @@
+{% extends "reports/base.html" %}
+
+{% block reportinfo %}
+<h2>Available reports</h2>
+{% endblock %}
+
+{% block content %}
+<dl>
+{% for report in reports|dictsort:"name" %}
+    <dt><a href="./{{ report.report_id }}">{{ report.name }}</a></dt>
+    <dd>{{ report.description }}</dd>
+{% endfor %}
+</dl>
+{% endblock %}

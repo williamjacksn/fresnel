@@ -1,0 +1,43 @@
+{% extends "reports/base.html" %}
+
+{% block reportinfo %}
+<h2>{{ report.name }}</h2>
+<p>{{ report.description }}</p>
+{% if report.prompts %}
+    <form action="./{{ report.report_id }}" method="get">
+    {% for prompt in report.prompts %}
+        <label for="{{ prompt }}">{{ prompt }}: </label>
+        <input type="text" name="{{ prompt }}" value="{{ prompts|first }}"></input>
+    {% endfor %}
+    <button type="submit">Reload</button>
+    </form>
+    <p id="altformat">[ <a href="./{{ report.report_id }}/csv?{{ report.prompts|first }}={{ prompts|first }}">csv</a> | <a href="./{{ report.report_id }}/json?{{ report.prompts|first }}={{ prompts|first }}">json</a> ]</p>
+{% else %}
+<p id="altformat">[ <a href="./{{ report.report_id }}/csv">csv</a> | <a href="./{{ report.report_id }}/json">json</a> ]</p>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<table id="data">
+    <thead>
+        <tr>
+        {% for column in report.columns %}
+            <th>{{ column }}</th>
+        {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+    {% for row in data %}
+        <tr>
+        {% for cell in row %}
+            <td>
+            {% if report.link and cell == row|first %}<a href="./{{ report.link.target_report_id }}?{{ report.link.target_prompt_name }}={{ cell|default:"" }}">{% endif %}
+            {{ cell }}
+            {% if report.link and cell == row|first %}</a>{% endif %}
+            </td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

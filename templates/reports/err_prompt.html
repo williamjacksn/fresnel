@@ -1,0 +1,13 @@
+{% extends "reports/base.html" %}
+
+{% block reportinfo %}
+<h2>{{ report.name }}</h2>
+<p>{{ report.description }}</p>
+<form action="./{{ report.report_id }}" method="get">
+{% for prompt in report.prompts %}
+    <label for="{{ prompt }}">{{ prompt }}: </label>
+    <input type="text" name="{{ prompt }}"></input>
+{% endfor %}
+<button type="submit">Reload</button>
+</form>
+{% endblock %}

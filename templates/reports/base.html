@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fresnel: Web reports for Absolute Manage</title>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ STATIC_URL }}reports/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}reports/fresnel.css" />
+        <script type="text/javascript" src="{{ STATIC_URL }}reports/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}reports/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function() {
+                $('#data').dataTable({"bPaginate": false});
+            });
+        </script>
+    </head>
+    <body>
+        <div id="header">
+            <h1><a href="./">Fresnel</a></h1>
+            <p>Web reports for Absolute Manage</p>
+        </div>
+        <div id="reportinfo">
+            {% block reportinfo %}
+            {% endblock %}
+        </div>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div id="footer">
+            <p>Database <strong>{{ db.NAME }}</strong> on host
+            <strong>{{ db.HOST }}</strong>, last database sync at
+            {{ db.SYNC_TIME }}</p>
+        </div>
+    </body>
+</html>
