@@ -23,11 +23,11 @@ def get_report(report_id):
     raise IndexError("Invalid Report ID: {0}".format(report_id))
 
 adobe_reader_x_latest = "10.1.12"
-adobe_reader_xi_latest = "11.0.09"
-adobe_reader_xi_latest_mac = "11.0.9"
+adobe_reader_xi_latest = "11.0.10"
+adobe_reader_xi_latest_mac = "11.0.10"
 firefox_latest = "34.0.5"
-flash_player_activex_latest = "15.0.0.239"
-flash_player_plugin_latest = "15.0.0.239"
+flash_player_activex_latest = "16.0.0.235"
+flash_player_plugin_latest = "16.0.0.235"
 java_latest = "7.0.710"
 
 portable_rlike = "book|latitude|3249|portege"
