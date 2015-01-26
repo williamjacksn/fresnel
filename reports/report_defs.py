@@ -1,5 +1,6 @@
 class Report(object):
-    def __init__(self, report_id, name, description, columns, sql, link=None, prompts=None):
+    def __init__(self, report_id, name, description, columns, sql, link=None,
+                 prompts=None):
         self.report_id = report_id
         self.name = name
         self.description = description
@@ -10,11 +11,13 @@ class Report(object):
 
 reports = list()
 
+
 def report_exists(report_id):
     for report in reports:
         if report.report_id == report_id:
             return True
     return False
+
 
 def get_report(report_id):
     for report in reports:
@@ -22,13 +25,13 @@ def get_report(report_id):
             return report
     raise IndexError("Invalid Report ID: {0}".format(report_id))
 
-adobe_reader_x_latest = "10.1.12"
+adobe_reader_x_latest = "10.1.13"
 adobe_reader_xi_latest = "11.0.10"
 adobe_reader_xi_latest_mac = "11.0.10"
-firefox_latest = "34.0.5"
-flash_player_activex_latest = "16.0.0.235"
-flash_player_plugin_latest = "16.0.0.235"
-java_latest = "7.0.710"
+firefox_latest = "35.0"
+flash_player_activex_latest = "16.0.0.296"
+flash_player_plugin_latest = "16.0.0.296"
+java_latest = "7.0.750"
 
 portable_rlike = "book|latitude|3249|portege"
 
