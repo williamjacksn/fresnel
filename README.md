@@ -23,6 +23,16 @@ create view v_agent_site_codes as
     where name = 'site code'
 ```
 
+```sql
+create view v_agent_os_version_strings as
+    select agent_info_record_id, concat_ws('.', left(conv(osversion, 10,
+    16), length(conv(osversion, 10, 16)) - 2), conv(mid(conv(osversion,
+    10, 16), length(conv(osversion, 10, 16)) - 1, 1), 16, 10),
+    if(right(conv(osversion, 10, 16), 1) = '0', null,
+    right(conv(osversion, 10, 16), 1))) as agent_os_version_string from
+    software_info
+```
+
 -----
 
 The favicon is from the [Silk icon set][silk].
