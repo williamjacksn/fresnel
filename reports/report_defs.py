@@ -28,9 +28,9 @@ def get_report(report_id):
 adobe_reader_x_latest = "10.1.13"
 adobe_reader_xi_latest = "11.0.10"
 adobe_reader_xi_latest_mac = "11.0.10"
-firefox_latest = "35.0"
-flash_player_activex_latest = "16.0.0.296"
-flash_player_plugin_latest = "16.0.0.296"
+firefox_latest = "36.0"
+flash_player_activex_latest = "16.0.0.305"
+flash_player_plugin_latest = "16.0.0.305"
 java_latest = "7.0.750"
 
 portable_rlike = "book|latitude|3249|portege"
